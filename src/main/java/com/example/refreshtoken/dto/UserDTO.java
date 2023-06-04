@@ -1,5 +1,6 @@
 package com.example.refreshtoken.dto;
 
+import com.example.refreshtoken.models.ProfileModel;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
@@ -17,6 +18,11 @@ public class UserDTO {
     @Size(min = 8, max = 16)
     @Pattern(regexp = "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$", message = "Password format invalid")
     private String password;
+
+
+    private ProfileModel profile;
+
+
 
     public String getName() {
         return name;
@@ -41,4 +47,14 @@ public class UserDTO {
     public void setPassword(String password) {
         this.password = password;
     }
+
+    public ProfileModel getProfile() {
+        return profile;
+    }
+
+    public void setProfile(ProfileModel profile) {
+        this.profile = profile;
+    }
+
+
 }

@@ -2,6 +2,7 @@ package com.example.refreshtoken.models;
 
 import jakarta.persistence.*;
 
+
 import java.io.Serializable;
 import java.util.UUID;
 
@@ -20,6 +21,11 @@ public class UserModel implements Serializable {
     private String email;
     @Column()
     private String password;
+
+    @OneToOne()
+    private ProfileModel profile;
+
+
 
     public UUID getId() {
         return id;
@@ -51,5 +57,13 @@ public class UserModel implements Serializable {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public ProfileModel getProfile() {
+        return profile;
+    }
+
+    public void setProfile(ProfileModel profile) {
+        this.profile = profile;
     }
 }
